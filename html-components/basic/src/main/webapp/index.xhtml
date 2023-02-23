@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html">
+    <h:head>
+        <title>Java For You's NewsLetter </title>
+    </h:head>
+    <h:body>
+        <h:messages golablOnly="true" showDetails="true"/>
+        <h:form id="form">
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Your handle: " for="user_name"/>
+                <h:inputText id="user_name" value="#{registration.userName}" />
+                <h:outputLabel value="Your email: " for="user_email"/>
+                <h:inputText id="user_email" value="#{registration.email}" />
+                <h:outputLabel value="Your phone number: " for="user_phone"/>
+                <h:inputText id="user_phone" value="#{registration.phoneNumber}" />
+                <h:outputLabel value="Your sexe: " for="user_sexe"/>
+                <h:selectOneRadio id="user_sexe" value="#{registration.sexe}" layout="list">
+                    <f:selectItems 
+                        value="#{web.sexes()}"
+                        var="sexe"
+                        itemValue="#{sexe}"
+                        itemLabel="#{sexe.label}"/>
+                </h:selectOneRadio>
+                <h:outputLabel value="Your intrests: " for="user_intersts"/>
+                <h:selectManyCheckbox  
+                    id="user_intrests"
+                    layout="list"
+                    value="#{registration.topics}">
+                    <f:selectItems 
+                        value="#{topicService.availableTopics}"
+                        var="topic"
+                        itemLabel="#{topic}"
+                        itemValue="#{topic}"/>
+                </h:selectManyCheckbox>
+                <h:outputLabel value="Do you agree: " for="user_agreed"/>
+                <h:selectBooleanCheckbox id="user_agreed" value="#{registration.agreedToTerms}"/>
+                <h:outputLabel value="Your password: " for="user_password"/>
+                <h:inputSecret id="user_password" value="#{registration.password}"/>
+                <h:commandButton value="Subscribe" action="#{registration.submit}"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

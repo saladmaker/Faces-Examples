@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html">
+    <h:head>
+        <title>Java For You's NewsLetter </title>
+
+    </h:head>
+    <h:body>
+        <h:panelGrid columns="1">
+            <h:outputLabel value="Your handle: #{registration.userName}" />
+            <h:outputLabel value="Your email: #{registration.email}" />
+            <h:outputLabel value="Your phone number: #{registration.phoneNumber}"/>
+            <h:outputLabel value="Your sexe: #{registration.sexe}" />
+            <h:outputLabel value="Your intrests: #{registration.topics}"/>
+            <h:outputLabel value="Your agreed to terms of services: #{registration.agreedToTerms}"/>
+            <h:outputLabel value="Your password: #{registration.password}"/>
+        </h:panelGrid>
+    </h:body>
+</html>
